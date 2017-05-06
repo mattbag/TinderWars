@@ -1,3 +1,4 @@
+import { AppState } from './app.global';
 import { SettingsPage } from './../pages/settings/settings';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
@@ -18,15 +19,15 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public global: AppState) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
       // { title: 'Home', component: HomePage },
       { title: 'Home', component: TinderCardsPage },
-      { title: 'About', component: AboutPage },
       { title: 'Settings', component: SettingsPage },
+      { title: 'About', component: AboutPage },
     ];
 
   }
@@ -35,8 +36,13 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      this.global.set('theme', '');
+      this.global.set('themeCheck', false);
+      console.log(this.global.state);
+      
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
     });
   }
 

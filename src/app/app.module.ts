@@ -1,3 +1,4 @@
+import { AppState } from './app.global';
 import { SettingsPage } from './../pages/settings/settings';
 import { TinderCardsPage } from './../pages/tinder/tinder-cards';
 import { ApisProvider } from './../providers/apis/apis';
@@ -42,7 +43,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApisProvider
+    ApisProvider,
+    AppState
   ]
 })
 export class AppModule {}
