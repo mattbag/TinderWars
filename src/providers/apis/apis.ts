@@ -31,8 +31,8 @@ export class ApisProvider {
 
         
     }
-    getPeople() {
-      var url = `http://swapi.co/api/people`;
+    getPeople(pageCount) {
+      var url = `http://swapi.co/api/people/?page=${pageCount}`;
         var response = this.http.get(url).map(res => res.json());
         return response;
     }

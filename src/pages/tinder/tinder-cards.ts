@@ -20,6 +20,7 @@ export class TinderCardsPage {
   @ViewChild('myswing1') swingStack: SwingStackComponent;
   @ViewChildren('mycards1') swingCards: QueryList<SwingCardComponent>;
   
+  pageCount: number = 1 ;
   wiki_data: any;
   swapi_people: any;
   cards: Array<any>;
@@ -51,7 +52,7 @@ export class TinderCardsPage {
     });
 
     this.cards = [];
-    this.addNewCards(1);
+    this.addNewCards(this.pageCount);
   }
 
   // Called whenever we drag an element
@@ -101,7 +102,7 @@ export class TinderCardsPage {
     
 
 
-    this.apis.getPeople().subscribe(
+    this.apis.getPeople(this.pageCount).subscribe(
       data => {
         this.swapi_people = data.results;
         // console.log(data);
@@ -140,7 +141,12 @@ export class TinderCardsPage {
       err => {
         console.log(err);
       },
-      () => console.log('Swapi Request Complete')
+      () => {
+      this.pageCount++,
+      console.log(this.pageCount);
+      
+      console.log('Swapi Request Complete')
+      }
     );
 
   

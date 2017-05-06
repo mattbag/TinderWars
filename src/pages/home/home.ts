@@ -12,7 +12,7 @@ export class HomePage {
   swapi_people: any;
   constructor(public navCtrl: NavController, private apis: ApisProvider) {
 
-    this.apis.getPeople().subscribe(
+    this.apis.getPeople(1).subscribe(
       data => {
         this.swapi_people = data.results;
         // console.log(data);
