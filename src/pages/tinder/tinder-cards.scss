@@ -10,10 +10,10 @@ page-tinder-cards {
     height: 70vh;
     position: absolute;
     img {
-    border-radius: 6px 6px 0px 0px;
-    max-width: 100%;
-    margin-bottom: 25px;
-  }
+      border-radius: 6px 6px 0px 0px;
+      max-width: 100%;
+      margin-bottom: 25px;
+    }
   }
   .fade {
     -webkit-transition: 0.2s opacity linear;
@@ -29,7 +29,7 @@ page-tinder-cards {
     padding-top: 6px;
     display: flex;
     justify-content: center;
-    ion-icon{
+    ion-icon {
       font-size: 3.5em;
     }
   }
@@ -44,8 +44,7 @@ page-tinder-cards {
     border: 5px solid #f0f0f0;
     float: left;
     box-shadow: 1px 1px 1px 0px #e9e9e9;
-  }
-  // .rate:nth-child(1) {
+  } // .rate:nth-child(1) {
   //   margin-left: 4px;
   //   background: url(http://web.arjentienkamp.com/codepen/tinder/delete.png);
   //   background-size: 25px;

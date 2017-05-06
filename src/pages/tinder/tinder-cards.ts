@@ -20,6 +20,7 @@ export class TinderCardsPage {
   @ViewChild('myswing1') swingStack: SwingStackComponent;
   @ViewChildren('mycards1') swingCards: QueryList<SwingCardComponent>;
   
+  // cardBG: string;
   pageCount: number = 1 ;
   wiki_data: any;
   swapi_people: any;
@@ -48,7 +49,9 @@ export class TinderCardsPage {
   ngAfterViewInit() {
     // Either subscribe in controller or set in HTML
     this.swingStack.throwin.subscribe((event: DragEvent) => {
-      event.target.style.background = '#ffffff';
+      // console.log(event);
+      
+      // event.target.style.backgroundColor = 'rgba(255,255,255,1)';
     });
 
     this.cards = [];
@@ -69,6 +72,8 @@ export class TinderCardsPage {
     }
 
     element.style.background = color;
+    element.style.borderColor = color;
+    // this.cardBG = color;
     element.style['transform'] = `translate3d(0, 0, 0) translate(${x}px, ${y}px) rotate(${r}deg)`;
   }
 
@@ -76,7 +81,7 @@ export class TinderCardsPage {
   voteUp(like: boolean) {
       this.cards.pop();
     // this.addNewCards(1);
-    if(this.cards.length < 5){
+    if(this.cards.length === 2){
       console.log('going fetching');
       
         this.addNewCards(1);
