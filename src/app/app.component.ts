@@ -1,11 +1,12 @@
-import { TinderCardsPage } from './../pages/tinder/tinder-cards';
+import { SettingsPage } from './../pages/settings/settings';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-// import { ListPage } from '../pages/list/list';
+// import { HomePage } from '../pages/home/home';
+import { TinderCardsPage } from './../pages/tinder/tinder-cards';
+import { AboutPage } from '../pages/about/about';
 
 @Component({
   templateUrl: 'app.html'
@@ -22,9 +23,10 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      // { title: 'List', component: ListPage }
-      { title: 'Tinder', component: TinderCardsPage }
+      // { title: 'Home', component: HomePage },
+      { title: 'Home', component: TinderCardsPage },
+      { title: 'About', component: AboutPage },
+      { title: 'Settings', component: SettingsPage },
     ];
 
   }

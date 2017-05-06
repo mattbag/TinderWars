@@ -12,6 +12,7 @@ import {
   SwingCardComponent
 } from 'angular2-swing';
 
+
 @Component({
   selector: 'page-tinder-cards',
   templateUrl: 'tinder-cards.html'
