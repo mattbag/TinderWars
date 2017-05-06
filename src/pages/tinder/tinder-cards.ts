@@ -32,8 +32,8 @@ export class TinderCardsPage {
     this.stackConfig = {
       throwOutConfidence: (offset, element: any) => {
         // console.log(element);
-        
-        return Math.min(Math.abs(offset) / (element / 2), 1);
+        // was element/2
+        return Math.min(Math.abs(offset) / (element / 3), 1);
       },
       transform: (element, x, y, r) => {
         this.onItemMove(element, x, y, r);
