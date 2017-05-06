@@ -1,3 +1,4 @@
+import { TinderCardsPage } from './../tinder/tinder-cards';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -13,12 +14,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'settings.html',
 })
 export class SettingsPage {
+  ageValue: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public nav: NavController, public navParams: NavParams) {
+    this.ageValue = {
+  upper:1000,
+  lower:18
+}
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingsPage');
+    console.log(this.ageValue);
+    
+  }
+
+  goHome(){
+    this.nav.setRoot(TinderCardsPage);
   }
 
 }

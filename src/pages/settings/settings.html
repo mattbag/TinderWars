@@ -7,27 +7,38 @@
 <ion-header>
   <ion-toolbar>
     <!--<ion-buttons start>-->
-        <button ion-button menuToggle>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <!--</ion-buttons>-->
     <ion-title>Settings</ion-title>
     <ion-buttons end>
-       <button ion-button>
+       <button ion-button (click)="goHome()">
       <ion-icon name="home"></ion-icon>
     </button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-
-
 <ion-content padding>
 <ion-list>
   <ion-item>
-  <ion-label> Sith theme</ion-label>
+  <ion-label>Sith theme</ion-label>
   <ion-toggle color="danger" checked="false"></ion-toggle>
 </ion-item>
-<ion-item>slider for age</ion-item>
+
+  <ion-item>
+    <ion-label expand>Age range: 
+      <ion-badge color="primary">
+{{ageValue.lower}} BBY
+</ion-badge>
+-
+ <ion-badge color="primary">
+{{ageValue.upper}} BBY
+</ion-badge>
+</ion-label>
+    <ion-range dualKnobs="true" [(ngModel)]="ageValue" min="18" max="1000" step="1" snaps="false"></ion-range>
+  </ion-item>
+
 </ion-list>
 </ion-content>
