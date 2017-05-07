@@ -23,6 +23,7 @@ export class MyApp {
     this.pages = [
       // { title: 'Home', component: HomePage },
       { title: 'Home', component: TinderCardsPage },
+      { title: 'I\'m a droid', component: 'ShipsPage' },
       { title: 'Settings', component: 'SettingsPage' },
       { title: 'About', component: 'AboutPage' },
     ];
