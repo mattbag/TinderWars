@@ -15,6 +15,7 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'settings.html',
 })
 export class SettingsPage {
+  themeName: string;
   ageValue: any;
   // sith: any;
   // themeChecked: boolean;
@@ -27,12 +28,21 @@ export class SettingsPage {
       lower: 18
     }
 
+  this.storage.get('theme').then((val) => {
+         if(val === 'sith-theme'){
+          this.themeName = 'Sith';
+         }else{
+           this.themeName = 'Jedi';
+         }
+        //  console.log('theme on: ', val);
+       })
 
   }
 
   changeTheme(event) {
 
     this.theme = event.checked ? 'sith-theme' : '';
+    this.themeName = event.checked ? 'Sith' : 'Jedi';
   
     this.global.set('theme', this.theme);
      this.storage.set('theme', this.theme);

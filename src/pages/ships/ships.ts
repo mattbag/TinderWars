@@ -24,15 +24,15 @@ export class ShipsPage {
 
   @ViewChild('myswing1') swingStack: SwingStackComponent;
   @ViewChildren('mycards1') swingCards: QueryList<SwingCardComponent>;
-  
-  pageCount: number = 1 ;
+
+  pageCount: number = 1;
   swapi_ships: any;
   cards: Array<any>;
   stackConfig: StackConfig;
   showLoader: boolean;
 
   constructor(public navCtrl: NavController, public http: Http, //public toastCtrl: ToastService,
-  private apis: ApisProvider
+    private apis: ApisProvider
   ) {
     this.stackConfig = {
       throwOutConfidence: (offset, element: any) => {
@@ -53,11 +53,11 @@ export class ShipsPage {
     // Either subscribe in controller or set in HTML
     this.swingStack.throwin.subscribe((event: DragEvent) => {
       // console.log(event);
-      
+
       // event.target.style.backgroundColor = '#ffffff';
       // event.target.style.background = '#ffffff';
       // console.log(event);
-      
+
     });
 
     this.cards = [];
@@ -68,7 +68,7 @@ export class ShipsPage {
   // Called whenever we drag an element
   onItemMove(element, x, y, r) {
     // console.log(element);
-    
+
     var color = '';
     var abs = Math.abs(x);
     let min = Math.trunc(Math.min(16 * 16 - abs, 16 * 16));
@@ -80,7 +80,7 @@ export class ShipsPage {
       color = '#FF' + hexCode + hexCode;
     }
 
-    element.style.background = color;
+    // element.style.background = color;
     element.style.borderColor = color;
     // this.cardBG = color;
     element.style['transform'] = `translate3d(0, 0, 0) translate(${x}px, ${y}px) rotate(${r}deg)`;
@@ -88,12 +88,12 @@ export class ShipsPage {
 
   // Connected through HTML
   voteUp(like: boolean) {
-      this.cards.pop();
+    this.cards.pop();
     // this.addNewCards(1);
-    if(this.cards.length === 2){
+    if (this.cards.length < 1) {
       console.log('going fetching');
       this.showLoader = true;
-        this.addNewCards(this.pageCount);
+      this.addNewCards(this.pageCount);
     }
     // if (like) {
     //   this.toastCtrl.create('You liked: ' + removedCard.email);
@@ -110,10 +110,10 @@ export class ShipsPage {
     //     for (let val of result) {
     //       // this.cards.push(val);
     //       console.log(val);
-          
+
     //     }
     //   })
-    
+
 
 
     this.apis.getShips(this.pageCount).subscribe(
@@ -136,8 +136,8 @@ export class ShipsPage {
                   // console.log(x);
                   this.cards.push(x);
                   // console.log(this.cards);
-                  
-                  
+
+
                 },
                 err => {
                   console.log(err);
@@ -156,15 +156,15 @@ export class ShipsPage {
         console.log(err);
       },
       () => {
-      this.pageCount++,
-      // console.log(this.pageCount);
-      // this is meh
-      setTimeout(() =>{this.showLoader = false;},1000)
-      console.log('Swapi Request Complete')
+        this.pageCount++ ,
+          // console.log(this.pageCount);
+          // this is meh
+          setTimeout(() => { this.showLoader = false; }, 1000)
+        console.log('Swapi Request Complete')
       }
     );
 
-  
+
   }
 
   // http://stackoverflow.com/questions/57803/how-to-convert-decimal-to-hex-in-javascript

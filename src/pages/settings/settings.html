@@ -17,7 +17,7 @@
 <ion-content padding>
 <ion-list>
   <ion-item>
-  <ion-label>Sith theme</ion-label>
+  <ion-label>{{themeName}} theme</ion-label>
   <ion-toggle color="danger" (ionChange)="changeTheme($event)" [checked]="global.state['theme'] === 'sith-theme'"></ion-toggle>
 </ion-item>
 

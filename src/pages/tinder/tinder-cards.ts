@@ -82,7 +82,7 @@ export class TinderCardsPage {
       color = '#FF' + hexCode + hexCode;
     }
 
-    element.style.background = color;
+    // element.style.background = color;
     element.style.borderColor = color;
     // this.cardBG = color;
     element.style['transform'] = `translate3d(0, 0, 0) translate(${x}px, ${y}px) rotate(${r}deg)`;
