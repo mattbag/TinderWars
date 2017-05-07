@@ -1,3 +1,4 @@
+import { AppState } from './../../app/app.global';
 import { ApisProvider } from './../../providers/apis/apis';
 // import { ToastService } from '../../providers/toast.service';
 import { Component, ViewChild, ViewChildren, QueryList } from '@angular/core';
@@ -28,7 +29,7 @@ export class TinderCardsPage {
   showLoader: boolean;
 
   constructor(public navCtrl: NavController, public http: Http, //public toastCtrl: ToastService,
-  private apis: ApisProvider
+  private apis: ApisProvider,public global: AppState
   ) {
     this.stackConfig = {
       throwOutConfidence: (offset, element: any) => {
@@ -51,7 +52,12 @@ export class TinderCardsPage {
       // console.log(event);
       
       // event.target.style.backgroundColor = '#ffffff';
-      // event.target.style.background = '#ffffff';
+      if(this.global.state['theme'] === 'sith-theme'){
+        event.target.style.background = '#212121';
+      }else{
+
+      event.target.style.background = '#ffffff';
+      }
       // console.log(event);
       
     });

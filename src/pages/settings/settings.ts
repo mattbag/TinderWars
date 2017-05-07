@@ -2,7 +2,7 @@ import { TinderCardsPage } from './../tinder/tinder-cards';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AppState } from "../../app/app.global";
-
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the SettingsPage page.
  *
@@ -20,11 +20,13 @@ export class SettingsPage {
   // themeChecked: boolean;
   theme: string;
 
-  constructor(public nav: NavController, public navParams: NavParams, public global: AppState) {
+  constructor(public nav: NavController, public navParams: NavParams, 
+  public storage: Storage, public global: AppState) {
     this.ageValue = {
       upper: 1000,
       lower: 18
     }
+
 
   }
 
@@ -33,6 +35,7 @@ export class SettingsPage {
     this.theme = event.checked ? 'sith-theme' : '';
   
     this.global.set('theme', this.theme);
+     this.storage.set('theme', this.theme);
 
   }
 

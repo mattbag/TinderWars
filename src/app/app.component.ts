@@ -3,7 +3,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { Storage } from '@ionic/storage';
 import { TinderCardsPage } from './../pages/tinder/tinder-cards';
 
 @Component({
@@ -16,7 +16,8 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public global: AppState) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, 
+  public storage: Storage,public global: AppState) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -34,8 +35,23 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.global.set('theme', '');
-      this.global.set('themeCheck', false);
+      // this.global.set('theme', '');
+      // this.global.set('themeCheck', false);
+      this.storage.ready().then(() => {
+
+       // set a key/value
+      //  this.storage.set('name', 'Max');
+
+       // Or to get a key/value pair
+       this.storage.get('theme').then((val) => {
+         if(val === 'sith-theme'){
+          this.global.set('theme', 'sith-theme');
+         }else{
+           this.global.set('theme', '');
+         }
+        //  console.log('theme on: ', val);
+       })
+     });
       // console.log(this.global.state);
       
       this.statusBar.styleDefault();
