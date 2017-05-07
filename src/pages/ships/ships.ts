@@ -135,7 +135,7 @@ export class ShipsPage {
                   x.img = data.items[_id].thumbnail;
                   // console.log(x);
                   this.cards.push(x);
-                  // console.log(this.cards);
+                  console.log(this.cards);
 
 
                 },
