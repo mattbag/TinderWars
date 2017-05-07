@@ -1,5 +1,4 @@
 import { AppState } from './app.global';
-import { SettingsPage } from './../pages/settings/settings';
 import { TinderCardsPage } from './../pages/tinder/tinder-cards';
 import { ApisProvider } from './../providers/apis/apis';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,10 +19,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
-    // HomePage,
     TinderCardsPage,
-    // AboutPage,
-    SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -34,10 +30,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    // HomePage,
     TinderCardsPage,
-    // AboutPage,
-    SettingsPage
   ],
   providers: [
     StatusBar,

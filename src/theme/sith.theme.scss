@@ -85,5 +85,8 @@
   .badge-md-primary{
     background-color: map-get($colors , danger );
   }
+  .card_loader{
+  background-color: $dark1;
+}
 }
 

@@ -21,13 +21,11 @@ export class TinderCardsPage {
   @ViewChild('myswing1') swingStack: SwingStackComponent;
   @ViewChildren('mycards1') swingCards: QueryList<SwingCardComponent>;
   
-  // cardBG: string;
   pageCount: number = 1 ;
-  // wiki_data: any;
   swapi_people: any;
   cards: Array<any>;
   stackConfig: StackConfig;
-  // recentCard: string = '';
+  showLoader: boolean;
 
   constructor(public navCtrl: NavController, public http: Http, //public toastCtrl: ToastService,
   private apis: ApisProvider
@@ -56,6 +54,7 @@ export class TinderCardsPage {
     });
 
     this.cards = [];
+    this.showLoader = true;
     this.addNewCards(this.pageCount);
   }
 
@@ -84,8 +83,8 @@ export class TinderCardsPage {
     // this.addNewCards(1);
     if(this.cards.length === 2){
       console.log('going fetching');
-      
-        this.addNewCards(1);
+      this.showLoader = true;
+        this.addNewCards(this.pageCount);
     }
     // if (like) {
     //   this.toastCtrl.create('You liked: ' + removedCard.email);
@@ -150,7 +149,8 @@ export class TinderCardsPage {
       () => {
       this.pageCount++,
       // console.log(this.pageCount);
-      
+      // this is meh
+      setTimeout(() =>{this.showLoader = false;},1000)
       console.log('Swapi Request Complete')
       }
     );

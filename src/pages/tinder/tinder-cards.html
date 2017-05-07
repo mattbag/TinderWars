@@ -21,6 +21,10 @@
     </ion-card>
   </div>
 </ion-content>
+<ion-content padding *ngIf="showLoader">
+<div class="card_loader"><ion-icon name="md-flame" color="danger"></ion-icon></div>
+</ion-content>
+
 <ion-footer>
   <div class="tinder-footer">
     <div id="swipe_dislike" class="rate" (click)="voteUp(false)">

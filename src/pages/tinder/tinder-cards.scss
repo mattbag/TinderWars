@@ -74,3 +74,23 @@ page-tinder-cards {
     background-repeat: no-repeat;
   }
 }
+.card_loader{
+  position: absolute;
+  left: 0;
+  top:0;
+  background-color: rgba(255, 255, 255, 1);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10em;
+  
+  ion-icon{
+    animation: card_loader 2s infinite reverse;
+  }
+}
+@keyframes card_loader{
+  0% {transform: scale(1)}
+  100% {transform: scale(1.1)}
+}
