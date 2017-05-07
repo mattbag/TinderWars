@@ -50,7 +50,10 @@ export class TinderCardsPage {
     this.swingStack.throwin.subscribe((event: DragEvent) => {
       // console.log(event);
       
-      // event.target.style.backgroundColor = 'rgba(255,255,255,1)';
+      // event.target.style.backgroundColor = '#ffffff';
+      // event.target.style.background = '#ffffff';
+      // console.log(event);
+      
     });
 
     this.cards = [];
@@ -60,6 +63,8 @@ export class TinderCardsPage {
 
   // Called whenever we drag an element
   onItemMove(element, x, y, r) {
+    // console.log(element);
+    
     var color = '';
     var abs = Math.abs(x);
     let min = Math.trunc(Math.min(16 * 16 - abs, 16 * 16));
