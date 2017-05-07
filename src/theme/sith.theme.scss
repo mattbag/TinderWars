@@ -82,5 +82,8 @@
   page-tinder-cards ion-card.td-card{
     background-color: $dark1;
   }
+  .badge-md-primary{
+    background-color: map-get($colors , danger );
+  }
 }
 

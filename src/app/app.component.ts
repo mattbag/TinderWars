@@ -1,13 +1,10 @@
 import { AppState } from './app.global';
-import { SettingsPage } from './../pages/settings/settings';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-// import { HomePage } from '../pages/home/home';
 import { TinderCardsPage } from './../pages/tinder/tinder-cards';
-import { AboutPage } from '../pages/about/about';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,8 +23,8 @@ export class MyApp {
     this.pages = [
       // { title: 'Home', component: HomePage },
       { title: 'Home', component: TinderCardsPage },
-      { title: 'Settings', component: SettingsPage },
-      { title: 'About', component: AboutPage },
+      { title: 'Settings', component: 'SettingsPage' },
+      { title: 'About', component: 'AboutPage' },
     ];
 
   }
@@ -38,7 +35,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.global.set('theme', '');
       this.global.set('themeCheck', false);
-      console.log(this.global.state);
+      // console.log(this.global.state);
       
       this.statusBar.styleDefault();
       this.splashScreen.hide();
@@ -49,6 +46,7 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    // this.nav.setRoot(page.component);
+    this.nav.push(page.component);
   }
 }

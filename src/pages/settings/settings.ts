@@ -29,19 +29,11 @@ export class SettingsPage {
   }
 
   changeTheme(event) {
-    // console.log(event.checked);
-    // this.themeChecked = event.checked;
+
     this.theme = event.checked ? 'sith-theme' : '';
-    // if(event.checked){
-    //   this.themeChecked = true;
-    //   this.theme = 'sith-theme';
-    // }else{
-    //   this.themeChecked = false;
-    //   this.theme = '';
-    // }
-    // console.log(this.sith);
+  
     this.global.set('theme', this.theme);
-    this.global.set('themeCheck', true);
+
   }
 
   ionViewDidLoad() {

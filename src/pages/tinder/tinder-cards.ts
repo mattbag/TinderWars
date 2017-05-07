@@ -23,11 +23,11 @@ export class TinderCardsPage {
   
   // cardBG: string;
   pageCount: number = 1 ;
-  wiki_data: any;
+  // wiki_data: any;
   swapi_people: any;
   cards: Array<any>;
   stackConfig: StackConfig;
-  recentCard: string = '';
+  // recentCard: string = '';
 
   constructor(public navCtrl: NavController, public http: Http, //public toastCtrl: ToastService,
   private apis: ApisProvider
@@ -149,7 +149,7 @@ export class TinderCardsPage {
       },
       () => {
       this.pageCount++,
-      console.log(this.pageCount);
+      // console.log(this.pageCount);
       
       console.log('Swapi Request Complete')
       }
