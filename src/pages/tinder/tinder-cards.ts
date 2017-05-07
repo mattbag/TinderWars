@@ -5,6 +5,7 @@ import { Component, ViewChild, ViewChildren, QueryList } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/Rx';
+import { ModalController } from 'ionic-angular';
 
 import {
   StackConfig,
@@ -28,8 +29,11 @@ export class TinderCardsPage {
   stackConfig: StackConfig;
   showLoader: boolean;
 
-  constructor(public navCtrl: NavController, public http: Http, //public toastCtrl: ToastService,
-  private apis: ApisProvider,public global: AppState
+  constructor(public navCtrl: NavController, 
+  public http: Http, //public toastCtrl: ToastService,
+  private apis: ApisProvider,
+  public global: AppState,
+  public modal: ModalController
   ) {
     this.stackConfig = {
       throwOutConfidence: (offset, element: any) => {
@@ -135,6 +139,7 @@ export class TinderCardsPage {
                   // this.wiki_data = data.results; 
                   // console.log(data);
                   x.img = data.items[_id].thumbnail;
+                  x.bio = data.items[_id].abstract;
                   // console.log(x);
                   this.cards.push(x);
                   // console.log(this.cards);
@@ -179,6 +184,11 @@ export class TinderCardsPage {
     }
 
     return hex;
+  }
+
+  showBio(person) {
+    let modal = this.modal.create('BioPage',{ person: person });
+    modal.present();
   }
 
 }

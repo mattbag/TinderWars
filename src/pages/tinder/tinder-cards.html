@@ -8,7 +8,7 @@
 </ion-header>
 <ion-content padding>
   <div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="voteUp(false)" (throwoutright)="voteUp(true)" id="card-stack">
-    <ion-card #mycards1 swing-card *ngFor="let card of cards" class="td-card">
+    <ion-card #mycards1 swing-card *ngFor="let card of cards" class="td-card" (click)="showBio(card)"> 
       <ion-item>
         <img *ngIf="card.img" [src]="card.img">
         <h1>{{ card.name }}</h1>
