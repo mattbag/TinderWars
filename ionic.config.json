@@ -1,0 +1,15 @@
+{
+  "name": "ionic-wars",
+  "app_id": "ec4dd7b3",
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api/v1",
+      "proxyUrl": "https://starwars.wikia.com/api/v1"
+    },
+    {
+      "path": "/api",
+      "proxyUrl": "https://swapi.co/api"
+    }
+  ]
+}
