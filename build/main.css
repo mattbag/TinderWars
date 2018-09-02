@@ -24674,16 +24674,25 @@ ion-navbar.toolbar {
   border: 1px solid #999;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
-  width: 85%;
+  width: 86%;
   height: 70vh;
   position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 #card-stack ion-card.td-card img {
   border-radius: 6px 6px 0px 0px;
+  margin: auto;
+  width: auto;
   margin-bottom: 16px;
   height: 340px;
-  object-fit: cover;
+  display: block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #card-stack .fade {
@@ -24951,4 +24960,16 @@ ion-navbar.toolbar {
 ion-label[expand] {
   width: 100%;
   margin-right: 0;
+}
+
+body > ion-app {
+  max-width: 460px;
+  max-height: 740px;
+  margin: auto;
+  right: 0;
+  bottom: 0;
+}
+
+ion-content.noscroll .scroll-content {
+  overflow-y: hidden;
 }
